@@ -12,7 +12,7 @@ import { ACCESS_TOKEN } from '../constants';
 import PollList from '../poll/PollList';
 import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
-import Signup from '../user/signup/Signup';
+import SignUpMasterForm from '../user/signup/SignUpMasterForm';
 import Profile from '../user/profile/Profile';
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
@@ -107,7 +107,7 @@ class App extends Component {
                 </Route>
                 <Route path="/login" 
                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
-                <Route path="/signup" component={Signup}></Route>
+                <Route path="/signup" component={SignUpMasterForm}></Route>
                 <Route path="/users/:username" 
                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                 </Route>

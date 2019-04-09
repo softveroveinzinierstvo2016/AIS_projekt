@@ -17,3 +17,11 @@ export const EMAIL_MAX_LENGTH = 40;
 
 export const PASSWORD_MIN_LENGTH = 6;
 export const PASSWORD_MAX_LENGTH = 20;
+
+export const BASIC_INFO_STEP = 1;
+export const PERFORMANCE_TYPE_STEP = 2;
+export const PERFORMANCE_STYLE_STEP = 3;
+export const PERFORMANCE_CATEGORY_STEP = 4;
+export const PRICE_CONFIG_STEP = 5;
+export const OTHER_INFO_STEP = 6;
+
