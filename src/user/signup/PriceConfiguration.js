@@ -15,7 +15,7 @@ class PriceConfiguration extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Price congifuration</h1>
+                <h1 className="page-title">Cenník</h1>
                 <div className="signup-content">
                     <Form onSubmit={this.handleSubmit} className="signup-form">
                         {this.props.performanceCategories.map((cat, index) => {
@@ -45,7 +45,7 @@ class PriceConfiguration extends Component {
                                                         name={"price" + subcat.name}
                                                         id={"price" + subcat.id}
                                                         autoComplete="off"
-                                                        placeholder="cena v EUR"
+                                                        placeholder="Cena v EUR"
                                                         value={subcat.price}
                                                         onChange={(event) => this.props.updateSubcategoryPrice(index, index2, event)}
                                                     />
@@ -55,7 +55,7 @@ class PriceConfiguration extends Component {
                                                         name={"name" + subcat.name}
                                                         id={"desc" + subcat.id}
                                                         autoComplete="off"
-                                                      //  placeholder="viac info o cene"
+                                                        placeholder="Upresňujúce informácie o cene"
                                                         value={subcat.desc}
                                                         onChange={(event) => this.props.updateSubcategoryPriceDescription(index, index2, event)}
                                                     />

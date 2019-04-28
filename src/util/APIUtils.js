@@ -57,14 +57,6 @@ export function login(loginRequest) {
     });
 }
 
-export function signup(signupRequest) {
-    return request({
-        url: API_BASE_URL + "/auth/signup",
-        method: 'POST',
-        body: JSON.stringify(signupRequest)
-    });
-}
-
 export function checkUsernameAvailability(username) {
     return request({
         url: API_BASE_URL + "/user/checkUsernameAvailability?username=" + username,
@@ -115,5 +107,20 @@ export function getUserVotedPolls(username, page, size) {
     return request({
         url: API_BASE_URL + "/users/" + username + "/votes?page=" + page + "&size=" + size,
         method: 'GET'
+    });
+}
+// zatial pre nas funkcne
+export function getRegistrationFormData() {
+    return request({
+        url: API_BASE_URL + "/signup",
+        method: 'GET'
+    });
+}
+
+export function signup(signupRequest) {
+    return request({
+        url: API_BASE_URL + "/signup",
+        method: 'POST',
+        body: JSON.stringify(signupRequest)
     });
 }

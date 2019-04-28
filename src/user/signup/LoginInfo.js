@@ -13,23 +13,23 @@ class LoginInfo extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Sign Up</h1>
+                <h1 className="page-title">Základné informácie</h1>
                 <div className="signup-content">
                     <Form onSubmit={this.props.handleSubmit} className="signup-form">
                         <FormItem
-                            label="Full Name"
-                            validateStatus={this.props.fullname.validateStatus}
-                            help={this.props.fullname.errorMsg}>
+                            label="Názov"
+                            validateStatus={this.props.fullName.validateStatus}
+                            help={this.props.fullName.errorMsg}>
                             <Input
                                 size="large"
-                                name="fullname"
-                                id="fullname"
+                                name="fullName"
+                                id="fullName"
                                 autoComplete="off"
-                                placeholder="Your full name"
-                                value={this.props.fullname.value}
+                                placeholder="Názov performera/skupiny"
+                                value={this.props.fullName.value}
                                 onChange={(event) => this.props.handleNameChange(event)}/>
                         </FormItem>
-                        <FormItem label="Username"
+                        <FormItem label="Prihlasovacie meno"
                                   hasFeedback
                                   validateStatus={this.props.username.validateStatus}
                                   help={this.props.username.errorMsg}>
@@ -38,7 +38,7 @@ class LoginInfo extends Component {
                                 name="username"
                                 id="username"
                                 autoComplete="off"
-                                placeholder="A unique username"
+                                placeholder="Prihlasovacie meno"
                                 value={this.props.username.value}
                                 onBlur={this.props.validateUsernameAvailability}
                                 onChange={(event) => this.props.handleUsernameChange(event)}
@@ -55,14 +55,14 @@ class LoginInfo extends Component {
                                 type="email"
                                 id="email"
                                 autoComplete="off"
-                                placeholder="Your email"
+                                placeholder="Email"
                                 value={this.props.email.value}
                                 onBlur={this.validateEmailAvailability}
                                 onChange={(event) => this.props.handleEmailChange(event)}
                             />
                         </FormItem>
                         <FormItem
-                            label="Password"
+                            label="Heslo"
                             validateStatus={this.props.password.validateStatus}
                             help={this.props.password.errorMsg}>
                             <Input
@@ -71,7 +71,7 @@ class LoginInfo extends Component {
                                 type="password"
                                 id="password"
                                 autoComplete="off"
-                                placeholder="A password between 6 to 20 characters"
+                                placeholder="Heslo 6 - 20 znakov"
                                 value={this.props.password.value}
                                 onChange={(event) => this.props.handlePasswordChange(event)}
                             />

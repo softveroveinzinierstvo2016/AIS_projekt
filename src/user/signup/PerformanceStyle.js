@@ -13,7 +13,7 @@ class PerformanceStyle extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Performance Style</h1>
+                <h1 className="page-title">Štýl performera</h1>
                 <div className="signup-content">
                     <Form className="signup-form">
                         {this.props.performanceStyles.map((style, index) => {

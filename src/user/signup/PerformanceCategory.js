@@ -14,15 +14,12 @@ class PerformanceCategory extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Performance Category</h1>
+                <h1 className="page-title">Typ produkcie</h1>
                 <div className="signup-content">
-                    <Form onSubmit={this.handleSubmit} className="signup-form">
+                    <Form className="signup-form">
                         {this.props.performanceCategories.map((cat, index) => {
                             return (
-                                <FormItem
-
-                                    validateStatus={cat.validationStatus}
-                                    help={cat.errorMsg}>
+                                <FormItem>
                                     <input
                                         onChange={(event) => this.props.performanceCategoryCheck(index, event)}
                                         id={cat.id} type="checkbox"

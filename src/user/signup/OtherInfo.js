@@ -15,18 +15,18 @@ class OtherInfo extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Other information</h1>
+                <h1 className="page-title">Ďalšie informácie</h1>
                 <div className="signup-content">
                     <Form onSubmit={this.handleSubmit} className="signup-form">
-                        <FormItem label="Webpage">
+                        <FormItem label="Webová adresa">
                             <Input
                                 size="large"
                                 name="webPage"
                                 id="webPage"
                                 autoComplete="off"
-                                placeholder="Your webpage address"
+                                placeholder="Adresa webovej stránky"
                                 value={this.props.webPage.value}
-                                onChange={this.props.handleChange}
+                                onChange={(event) => this.props.handleChange(event)}
                             />
                         </FormItem>
                         <FormItem label="Youtube Link">
@@ -50,7 +50,7 @@ class OtherInfo extends Component {
                                 name="otherInfo"
                                 id="otherInfo"
                                 autoComplete="off"
-                                placeholder="Additional information"
+                                placeholder="Doplňujúce informácie"
                                 value={this.props.otherInfo.value}
                                 onChange={this.props.handleChange}/>
                         </FormItem>

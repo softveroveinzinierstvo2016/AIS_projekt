@@ -1,0 +1,96 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.box1 {
+    position: center;
+    align-self: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.box2 {
+    position: center;
+    align-self: center;
+    width: 50%;
+    margin: 10px;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-info {
+    width: 90%;
+    margin: 5%;
+    align-self: center;
+}
+
+.scrollable-content {
+    background: white;
+    overflow: auto;
+    flex-grow: 1;
+    /* for Firefox */
+    min-height: 0;
+}
+
+.table-key {
+    width: fit-content;
+    vertical-align: text-top;
+    font-weight: bold;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+
+.wrap {
+    white-space: normal;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.slider{
+    width: 90%;
+}
+
+.table-value {
+    vertical-align: text-top;
+    min-width: 100px;
+    margin: 5px;
+}
+
+.table-space {
+    min-width: 30px;
+}
+
+.price-label{
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: center;
+    align-self: center;
+}
+
+.list {
+    list-style-type: circle;
+}
+
+.row-group {
+    width: 100%;
+    border: 1px solid #f2f5f9;
+   /* font-size: 1.3em;*/
+}
+
+.row-empty {
+    height : 20px;
+}
+
+.ok-button{
+    width : 50%;
+    position: center;
+    align-self: center;
+}

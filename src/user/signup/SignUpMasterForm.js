@@ -10,12 +10,18 @@ import {Button, notification} from "antd";
 import {
     EMAIL_MAX_LENGTH,
     NAME_MAX_LENGTH,
-    NAME_MIN_LENGTH, PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH,
+    NAME_MIN_LENGTH,
+    PASSWORD_MAX_LENGTH,
+    PASSWORD_MIN_LENGTH,
     USERNAME_MAX_LENGTH,
     USERNAME_MIN_LENGTH
 } from "../../constants";
-import {checkEmailAvailability, checkUsernameAvailability, signup} from "../../util/APIUtils";
-import {Link} from "react-router-dom";
+import {
+    checkEmailAvailability,
+    checkUsernameAvailability,
+    getRegistrationFormData,
+    signup
+} from "../../util/APIUtils";
 
 class SignUpMasterForm extends Component {
     constructor(props) {
@@ -23,10 +29,7 @@ class SignUpMasterForm extends Component {
         // Set the initial input values
         this.state = {
             currentStep: 1, // Default is Step 1
-            loaded: {
-                value: false
-            },
-            fullname: {value: ''},
+            fullName: {value: ''},
             email: {value: ''},
             username: {value: ''},
             password: {value: ''},
@@ -58,16 +61,14 @@ class SignUpMasterForm extends Component {
     }
 
     componentDidMount() {
-        if (!this.state.loaded.value) {
-            this.loadData();
-        }
+        this.loadData();
     }
 
 // Use the submitted data to set the state
     handleChange(event) {
         const {name, value} = event.target
         this.setState({
-            [name]: value
+            [name]: {value: value}
         })
     }
 
@@ -170,12 +171,12 @@ class SignUpMasterForm extends Component {
                                 handleNameChange={(name) => this.handleInputChange(name, this.validateName)}
                                 handleEmailChange={(email) => this.handleInputChange(email, this.validateEmail)}
                                 handlePasswordChange={(password) => this.handleInputChange(password, this.validatePassword)}
-                                fullname={this.state.fullname}
+                                fullName={this.state.fullName}
                                 username={this.state.username}
                                 email={this.state.email}
                                 password={this.state.password}
                                 handleChange={this.handleChange}
-                                validateName={(name) => this.validateName(name)}
+
                                 setState={this.setState}
                             />
                             <PerformanceType
@@ -222,22 +223,22 @@ class SignUpMasterForm extends Component {
                                         onClick={this._prev}
                                         size="large"
                                         className="signup-form-button"
-                                        disabled={this.state.currentStep <= 1}>Previous</Button>
+                                        disabled={this.state.currentStep <= 1}>Späť</Button>
                             </div>
                             <div className="right-button">
                                 <Button type="primary"
                                         onClick={this._next}
                                         size="large"
                                         className="signup-form-button"
-                                        disabled={this.state.currentStep >= 5}>Next</Button>
+                                        disabled={this.state.currentStep >= 6}>Ďalej</Button>
                             </div>
                         </div>
                         <Button type="primary"
                                 htmlType="submit"
                                 size="large"
                                 className="signup-form-button"
-                                hidden={this.state.currentStep < 5}
-                                disabled={this.isFormInvalid()}>Sign up</Button>
+                                hidden={this.state.currentStep < 6}
+                                disabled={this.isFormInvalid()}>Registrovať</Button>
                     </div>
                 </div>
             </form>
@@ -246,12 +247,7 @@ class SignUpMasterForm extends Component {
 
 // Functions
     isFormInvalid() {
-        console.log(this.state.fullname.validateStatus)
-        console.log(this.state.username.validateStatus)
-        console.log(this.state.email.validateStatus)
-        console.log(this.state.password.validateStatus)
-
-        return !(this.state.fullname.validateStatus === 'success' &&
+        return !(this.state.fullName.validateStatus === 'success' &&
             this.state.username.validateStatus === 'success' &&
             this.state.email.validateStatus === 'success' &&
             this.state.password.validateStatus === 'success'
@@ -261,14 +257,53 @@ class SignUpMasterForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        var types = [];
+        this.state.performanceTypes.forEach((type) => {
+            if (type.val === true) {
+                types.push(type.id);
+            }
+        });
+
+        var styles = [];
+        this.state.performanceStyles.forEach((style) => {
+            if (style.val === true) {
+                styles.push(style.id);
+            }
+        });
+
+        var subcategories = [];
+        this.state.performanceCategories.forEach((category) => {
+            if (category.val === true) {
+                category.subcategories.forEach(subcat => {
+                    if (subcat.val === true) {
+                        subcategories.push({
+                            "userId": null,
+                            "performanceSubcategory": subcat.id,
+                            "informativePrice": subcat.price,
+                            "priceDescription": subcat.desc
+                        })
+                    }
+                })
+            }
+        })
+
 
         const signupRequest = {
-            fullname: this.state.fullname.value,
-            email: this.state.email.value,
             username: this.state.username.value,
-            password: this.state.password.value
-
+            password: this.state.password.value,
+            name: this.state.fullName.value,
+            email: this.state.email.value,
+            isSolo: this.state.isSolo,
+            performerTypes: types,
+            performerStyles: styles,
+            pricedPerformanceSubcategory: subcategories,
+            web: this.state.webPage.value,
+            youtubeLink: this.state.youtube.value,
+            otherPerformerInfo: this.state.otherInfo.value
         };
+
+        console.log(signupRequest)
+
         signup(signupRequest)
             .then(response => {
                 notification.success({
@@ -517,123 +552,58 @@ class SignUpMasterForm extends Component {
         };
     }
 
+
     loadData() {
-        let data =
-            {
-                "performer_types": [
-                    {
-                        "id": 1,
-                        "name": "Spevák"
-                    },
-                    {
-                        "id": 2,
-                        "name": "Hudba"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Tanec"
-                    },
-                    {
-                        "id": 4,
-                        "name": "Moderator"
-                    }
-                ],
-                "performer_styles": [
-                    {
-                        "id": 1,
-                        "name": "Ludova prod"
-                    },
-                    {
-                        "id": 2,
-                        "name": "Moderna prod"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Klasicka prod"
-                    }
-                ],
-                "performer_categories": [
-                    {
-                        "id": 1,
-                        "name": "Svadba",
-                        "subcategories": [
-                            {
-                                "id": 1,
-                                "name": "Cepcenie"
-                            },
-                            {
-                                "id": 2,
-                                "name": "Cepcenie2"
-                            },
-                            {
-                                "id": 3,
-                                "name": "Cepcenie3"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "Koncert",
-                        "subcategories": [
-                            {
-                                "id": 4,
-                                "name": "koncert1"
-                            },
-                            {
-                                "id": 5,
-                                "name": "koncert2"
-                            },
-                            {
-                                "id": 6,
-                                "name": "koncert3"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 3,
-                        "name": "Daco ine",
-                        "subcategories": [
-                            {
-                                "id": 7,
-                                "name": "Daco ine 1"
-                            },
-                            {
-                                "id": 8,
-                                "name": "Daco ine 2"
-                            },
-                            {
-                                "id": 9,
-                                "name": "Daco ine 3"
-                            }
-                        ]
-                    }
-                ]
+        let promise = getRegistrationFormData();
 
-            };
+        if (!promise) {
+            return;
+        }
 
-        var types = [];
-        data.performer_types.map((type) => types.push({"id": type.id, "name": type.name, "val": false}));
+        promise
+            .then(response => {
+                console.log(response.performer_types)
+                var types = [];
+                response.performerTypes.map((type) => types.push({"id": type.id, "name": type.typeName, "val": false}));
 
-        var styles = [];
-        data.performer_styles.map((type) => styles.push({"id": type.id, "name": type.name, "val": false}));
+                var styles = [];
+                response.performerStyles.map((style) => styles.push({
+                    "id": style.id,
+                    "name": style.styleName,
+                    "val": false
+                }));
 
-        var categories = [];
-        data.performer_categories.map((cat) => {
-            var sub = [];
-            cat.subcategories.map((subcat) => sub.push({
-                "id": subcat.id,
-                "name": subcat.name,
-                "val": false,
-                "price": null,
-                "desc": null
-            }))
-            categories.push({"id": cat.id, "name": cat.name, "val": false, "subcategories": sub})
+                var categories = [];
+                response.performerCategories.forEach((cat) => {
+                    var sub = [];
+                    cat.subCategories.map((subcat) => sub.push({
+                        "id": subcat.id,
+                        "name": subcat.subCategoryName,
+                        "val": false,
+                        "price": null,
+                        "desc": null
+                    }))
+                    categories.push({"id": cat.id, "name": cat.categoryName, "val": false, "subcategories": sub})
+                });
+                console.log(response.performer_styles)
+
+                this.setState({
+                    performanceTypes: types,
+                    performanceStyles: styles,
+                    performanceCategories: categories,
+                    loaded: true,
+                    isLoading: false
+                });
+                console.log(this.state.performanceCategories)
+            }).catch(error => {
+            console.log(error)
+            this.setState({
+                isLoading: false
+            })
         });
-
         this.setState({
-            performanceTypes: types, performanceStyles: styles, performanceCategories: categories, loaded: true
+            isLoading: true
         });
-
     }
 }
 

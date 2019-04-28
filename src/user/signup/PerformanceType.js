@@ -14,7 +14,7 @@ class PerformanceType extends Component {
 
         return (
             <div className="signup-container">
-                <h1 className="page-title">Performance Type</h1>
+                <h1 className="page-title">Typ Performera</h1>
                 <div className="signup-content">
                     <Form className="signup-form">
                         <FormItem>
@@ -23,7 +23,7 @@ class PerformanceType extends Component {
                                 id={"isSolo"} type="checkbox"
                                 checked={this.props.isSolo}/>
                             <label
-                                htmlFor="isSolo">Is solo</label>
+                                htmlFor="isSolo">Sólista</label>
 
                         </FormItem>
                         {this.props.performanceTypes.map((type, index) => {
