@@ -6,11 +6,14 @@
   text-decoration: none;
   line-height: 64px;
   font-size: 21px;
+  color: #ffffff;
   display: inline-block;
+  letter-spacing: 3px;
 }
 
 .app-title a:hover {
   text-decoration: none;
+  color: #e0e0e0;
 }
 
 .app-header {
@@ -19,23 +22,34 @@
   box-shadow: 0 2px 8px #f0f1f2;
   z-index: 10;
   padding: 0;
+  color: #ffffff;
+  background-color: #1565c0;
 }
 
 .app-menu {
-  float: right;
+  color: #ffffff !important;
+  background-color: #1565c0
+}
+
+.app-menu a:hover {
+  color: #e0e0e0 !important;
+
 }
 
 .app-menu > li {
   padding: 0 20px;
+  color: #ffffff !important;
 }
 
 .app-menu > li > a {
   padding: 0 20px;
   margin: 0 -20px;
+  color: #ffffff !important;
 }
 
 .app-menu > li > a > i {
   margin-right: 0 !important;
+  color: #ffffff !important;
 }
 
 .profile-dropdown-menu {
@@ -73,14 +87,17 @@
 @media (max-width: 768px) {
   .app-title a {
     font-size: 20px;
+    color: #ffffff !important;
   }
 
   .app-menu > li {
     padding: 0 15px;
+    color: #ffffff !important;
   }
 
   .app-menu > li > a {
     padding: 0 15px;
     margin: 0 -15px;
+    color: #ffffff !important;
   }
 }

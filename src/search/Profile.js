@@ -9,13 +9,16 @@ class Profile extends Component {
         const videoId = getVideoId(this.props.details.youtube);
         const validYoutubeLink = (videoId !== ""); /* {validYoutubeLink && */
         return (
-            <div className="scrollable-content">
+            <div className="scrollable-content" style={{backgroundColor:this.props.color}}>
                 <div className="profile">
-                    <h1 className="profile-header">{this.props.details.fullName}</h1>
+
                     {validYoutubeLink &&
                     <div className="box2">
                         <Youtube video={videoId} autoplay="0" rel="0" modest="1"/>
                     </div>}
+                    <div style={{paddingTop:'20px'}}>
+                      <h1 className="profile-header">{this.props.details.fullName}</h1>
+                    </div>
                     <div className="box1">
                         <table className="profile-info">
                             <tr>

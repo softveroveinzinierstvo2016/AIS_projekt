@@ -1,7 +1,7 @@
 .profile {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
 }
 
 .box1 {
@@ -9,17 +9,21 @@
     align-self: center;
     width: 100%;
     margin: 10px;
+    font-family: "Roboto";
+    letter-spacing: 1px;
 }
 
 .box2 {
     position: center;
     align-self: center;
-    width: 50%;
+    width: 60%;
     margin: 10px;
 }
 
 .profile-header {
     text-align: center;
+    letter-spacing: 3px;
+    font-family: "Georgia", serif;
 }
 
 .profile-info {

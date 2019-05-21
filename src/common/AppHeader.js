@@ -3,6 +3,7 @@ import {
     Link,
     withRouter
 } from 'react-router-dom';
+import Toolbar from '@material-ui/core/Toolbar';
 import './AppHeader.css';
 import pollIcon from '../poll.svg';
 import {Layout, Menu, Dropdown, Icon} from 'antd';
@@ -57,18 +58,20 @@ class AppHeader extends Component {
 
         return (
             <Header className="app-header">
-                <div className="container">
-                    <div className="app-title">
-                        <Link to="/">Mišo ešte nevymyslel názov</Link>
-                    </div>
-                    <Menu
-                        className="app-menu"
-                        mode="horizontal"
-                        selectedKeys={[this.props.location.pathname]}
-                        style={{lineHeight: '64px'}}>
-                        {menuItems}
-                    </Menu>
+            <Toolbar>
+            <div className="app-title" style={{flexGrow: 1}}>
+                    <Link to="/">Mišo ešte nevymyslel názov</Link>
                 </div>
+                <Menu
+
+                    className="app-menu"
+                    mode="horizontal"
+                    selectedKeys={[this.props.location.pathname]}
+                    style={{lineHeight: '64px'}}>
+                    {menuItems}
+                </Menu>
+            </Toolbar>
+
             </Header>
         );
     }

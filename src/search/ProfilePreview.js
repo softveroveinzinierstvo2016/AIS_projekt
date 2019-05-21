@@ -18,22 +18,23 @@ class ProfilePreview extends Component {
         this.props.details.categories.forEach(c => {
             c.subcategories.forEach(sub => { if (categories.length > 0) categories = categories + ", "; categories = categories + sub.name})
         });
-
+        console.log('==>',this.props.color)
         var description = this.props.details.otherInfo;
         if (description.length > 100) {}
          description = description.substr(0, 100).concat("...");
         return (
-            <div className="card-container">
+            <div className="card-container" style={{backgroundColor:this.props.color}}>
             <article className="box-card"
                      onClick={(event) => this.props.modalOpen(this.props.index)}>
-                <header style={style} className="card-header"/>
+
                 <div className="card-body">
+
+                    <header style={style} className="card-header"/>
                     <h2>{this.props.details.fullName}</h2>
                     <p className="preview-line">{types}</p>
                     <p className="preview-line">{styles}</p>
                     <p className="preview-line">{categories}</p>
                     <p >{description}</p>
-
                 </div>
             </article>
             </div>

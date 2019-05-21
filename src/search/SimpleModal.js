@@ -59,7 +59,6 @@ class SimpleModal extends Component {
             children,
             classes,
         } = this.props;
-
         return (
             <div className={classes.modalOverlay}>
                 <div
