@@ -562,28 +562,27 @@ class SignUpMasterForm extends Component {
 
         promise
             .then(response => {
-                console.log(response.performer_types)
                 var types = [];
-                response.performerTypes.map((type) => types.push({"id": type.id, "name": type.typeName, "val": false}));
+                response.performerTypes.map((type) => types.push({"id": type.id, "name": type.name, "val": false}));
 
                 var styles = [];
                 response.performerStyles.map((style) => styles.push({
                     "id": style.id,
-                    "name": style.styleName,
+                    "name": style.name,
                     "val": false
                 }));
 
                 var categories = [];
                 response.performerCategories.forEach((cat) => {
                     var sub = [];
-                    cat.subCategories.map((subcat) => sub.push({
+                    cat.performanceSubcategories.map((subcat) => sub.push({
                         "id": subcat.id,
-                        "name": subcat.subCategoryName,
+                        "name": subcat.name,
                         "val": false,
                         "price": null,
                         "desc": null
                     }))
-                    categories.push({"id": cat.id, "name": cat.categoryName, "val": false, "subcategories": sub})
+                    categories.push({"id": cat.id, "name": cat.name, "val": false, "subcategories": sub})
                 });
                 console.log(response.performer_styles)
 

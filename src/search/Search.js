@@ -869,26 +869,26 @@ class Search extends Component {
           var types = [];
           response.performerTypes.forEach((type) => types.push({
             "id": type.id,
-            "name": type.typeName,
+            "name": type.name,
             "val": false
           }));
 
           var styles = [];
           response.performerStyles.forEach((style) => styles.push({
             "id": style.id,
-            "name": style.styleName,
+            "name": style.name,
             "val": false
           }));
 
           var categories = [];
           response.performerCategories.forEach((cat) => {
             var sub = [];
-            cat.subCategories.forEach((subcat) => sub.push({
+            cat.performanceSubcategories.forEach((subcat) => sub.push({
               "id": subcat.id,
-              "name": subcat.subCategoryName,
+              "name": subcat.name,
               "val": false,
             }))
-            categories.push({"id": cat.id, "name": cat.categoryName, "val": false, "subcategories": sub})
+            categories.push({"id": cat.id, "name": cat.name, "val": false, "subcategories": sub})
           });
 
           this.setState({
