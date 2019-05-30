@@ -60,7 +60,7 @@ class AppHeader extends Component {
             <Header className="app-header">
             <Toolbar>
             <div className="app-title" style={{flexGrow: 1}}>
-                    <Link to="/">Mišo ešte nevymyslel názov</Link>
+                    <Link to="/">Performer Finder</Link>
                 </div>
                 <Menu
 

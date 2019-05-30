@@ -237,6 +237,7 @@ class SignUpMasterForm extends Component {
                                 htmlType="submit"
                                 size="large"
                                 className="signup-form-button"
+                                onClick={this.handleSubmit}
                                 hidden={this.state.currentStep < 6}
                                 disabled={this.isFormInvalid()}>Registrovať</Button>
                     </div>
@@ -294,8 +295,8 @@ class SignUpMasterForm extends Component {
             name: this.state.fullName.value,
             email: this.state.email.value,
             isSolo: this.state.isSolo,
-            performerTypes: types,
-            performerStyles: styles,
+            performerType: types,
+            performerStyle: styles,
             pricedPerformanceSubcategory: subcategories,
             web: this.state.webPage.value,
             youtubeLink: this.state.youtube.value,
@@ -307,14 +308,14 @@ class SignUpMasterForm extends Component {
         signup(signupRequest)
             .then(response => {
                 notification.success({
-                    message: 'Polling App',
-                    description: "Thank you! You're successfully registered. Please Login to continue!",
+                    message: 'Performer Finder',
+                    description: "Registrácia bola úspešná!",
                 });
-                this.props.history.push("/login");
+                this.props.history.push("/search");
             }).catch(error => {
             notification.error({
-                message: 'Polling App',
-                description: error.message || 'Sorry! Something went wrong. Please try again!'
+                message: 'Performer Finder',
+                description: error.message || 'Ospravedlňujeme sa! Niečo sa pokazilo.'
             });
         });
     }

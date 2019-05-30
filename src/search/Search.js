@@ -7,7 +7,6 @@ import Filter from "./Filter";
 import {getRegistrationFormData} from "../util/APIUtils";
 import {Button} from "antd";
 import Input from "antd/es/input";
-import TextField from '@material-ui/core/TextField';
 
 const gridData = [
   {
