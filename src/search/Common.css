@@ -65,9 +65,9 @@
     width: fit-content;
     vertical-align: text-top;
     font-weight: bold;
-    padding-right: 10px;
+  
     white-space: nowrap;
-
+    padding-left: 20px;
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     color: black;
@@ -116,7 +116,6 @@
 
 .row-group {
     width: 100%;
-
     padding-top: 2px !important;
     padding-bottom: 2px !important;
    /* font-size: 1.3em;*/
