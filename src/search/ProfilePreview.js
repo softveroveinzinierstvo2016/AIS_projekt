@@ -23,7 +23,7 @@ class ProfilePreview extends Component {
         if (description.length > 100) {}
          description = description.substr(0, 100).concat("...");
         return (
-            <div className="card-container" style={{backgroundColor:this.props.color}}>
+            <div className="card-container">
             <article className="box-card"
                      onClick={(event) => this.props.modalOpen(this.props.index)}>
 

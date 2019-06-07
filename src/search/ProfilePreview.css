@@ -5,13 +5,16 @@
 
 .card-container {
     border: 1px solid #f2f5f9;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     /*border-radius: 10px;*/
     margin-top: 15px;
     margin-bottom: 15px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
-    background-color: #ffffff;
+    background-image: url("/1479_wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .card-container:hover {
@@ -20,14 +23,19 @@
 
 .card-body h2 {
   text-align: center;
-  color: #ffffff;
+  text-shadow: -1px 0 #78909c, 0 1px #78909c, 1px 0 #78909c, 0 -1px #78909c;
+  color: #fafafa;
+
+  font-size: 1.7em;
   letter-spacing: 3px;
 }
 
 .card-body p {
    padding-left: 10px;
+   font-size: 0.9em;
+
    padding-right: 10px;
-   color: #ffffff;
+   color: black;
    letter-spacing: 1px;
 }
 

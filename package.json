@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "antd": "latest",
+    "font-awesome": "^4.7.0",
     "prop-types": "^15.5.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

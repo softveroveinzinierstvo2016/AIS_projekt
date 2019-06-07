@@ -32,13 +32,13 @@ class Profile extends Component {
                             <tr>
                                 <td className="table-key">Web:</td>
                                 <td colSpan="2">{this.props.details.webPage}</td>
-                            </tr>
+                            </tr><br/>
                             <tr>
                                 <td className="table-key">Typ interpreta:</td>
                                 <td colSpan="2">
-                                    <ul className="list">
+                                    <ul className="list fa-ul">
                                         {this.props.details.performanceTypes.map(type => {
-                                            return (<li>{type}</li>)
+                                            return (<li><i className="fa-li fa fa-angle-double-right"></i>{type}</li>)
                                         })}
                                     </ul>
                                 </td>
@@ -46,14 +46,13 @@ class Profile extends Component {
                             <tr>
                                 <td className="table-key">Štýl interpreta:</td>
                                 <td colSpan="2">
-                                    <ul className="list">
+                                    <ul className="list fa-ul">
                                         {this.props.details.performanceStyles.map(style => {
-                                            return (<li>{style}</li>)
+                                            return (<li><i className="fa-li fa fa-angle-double-right"></i>{style}</li>)
                                         })}
                                     </ul>
                                 </td>
                             </tr>
-
                             <tr>
                                 <td className="table-key">Typ produkcie:</td>
                                 <td>
@@ -64,7 +63,9 @@ class Profile extends Component {
                                                 <tr>
                                                     <td className="table-space"/>
                                                     <td colspan="3">
-                                                        <li className="list">{category.name}</li>
+                                                    <ul className="list fa-ul">
+                                                        <li><i className="fa-li fa fa-angle-double-right"></i>{category.name}</li>
+                                                    </ul>
                                                     </td>
                                                 </tr>
                                                 {category.subcategories.map(sub => {
@@ -72,7 +73,9 @@ class Profile extends Component {
                                                         <td className="table-space"/>
                                                         <td className="table-space"/>
                                                         <td className="no-wrap">
-                                                            <li className="list">{sub.name}</li>
+                                                          <ul className="list fa-ul">
+                                                            <li><i className="fa-li fa fa-angle-double-right"></i>{sub.name}</li>
+                                                            </ul>
                                                         </td>
                                                         <td className="table-space"/>
                                                         <td className="wrap">{sub.price + "€ (" + sub.desc + ")"}</td>
@@ -84,9 +87,9 @@ class Profile extends Component {
                                     </table>
                                 </td>
                             </tr>
-
+                            <br/>
                             <tr>
-                                <td className="table-key"><b>Viac info: </b></td>
+                                <td className="table-key">Viac info: </td>
                                 <td>{this.props.details.otherInfo}</td>
                             </tr>
                         </table>

@@ -1,4 +1,12 @@
+html, body {
+  height: 100% !important;
+  background: rgb(94,120,181);
+  background: linear-gradient(90deg, rgba(94,120,181,1) 0%, rgba(69,183,194,1) 44%, rgba(103,213,153,1) 92%);
+}
+
 .app-content {
   margin-top: 64px;
-  background-color: #fafafa; 
+  height: 100%;
+  background: rgb(94,120,181);
+  background: linear-gradient(90deg, rgba(94,120,181,1) 0%, rgba(69,183,194,1) 44%, rgba(103,213,153,1) 92%);
 }

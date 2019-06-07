@@ -176,7 +176,6 @@ class SignUpMasterForm extends Component {
                                 email={this.state.email}
                                 password={this.state.password}
                                 handleChange={this.handleChange}
-
                                 setState={this.setState}
                             />
                             <PerformanceType

@@ -642,23 +642,6 @@ const gridData = [
   }
 ]
 
-function returnColor(input) {
-  let result = 0;
-    if (input > 11) {
-       result = input % 12;
-    } else result = input;
-    const colors = ['#9575cd','#7986cb','#64b5f6','#4dd0e1','#4db6ac','#81c784','#aed581','#ffd54f','#ffb74d','#ff8a65','#e57373','#a1887f'];
-    return colors[result];
-}
-
-function returnPastelColor(input) {
-  let result = 0;
-    if (input > 11) {
-       result = input % 12;
-    } else result = input;
-    const colors = ['#d1c4e9','#c5cae9','#bbdefb','#b2ebf2','#b2dfdb','#c8e6c9','#dcedc8','#ffecb3','#ffe0b2','#ffccbc','#ffcdd2','#d7ccc8'];
-    return colors[result];
-}
 
 class Search extends Component {
   constructor() {
@@ -737,16 +720,16 @@ class Search extends Component {
       .map(key => {
         return (
           <ProfilePreview key={key} index={key} details={this.state.posts[key]}
-          seleIdx={this.selectIdx} modalOpen={this.modalOpen} color={returnColor(key)}/>)
+          seleIdx={this.selectIdx} modalOpen={this.modalOpen}/>)
 
         })
       }
       {this.state.modalShow &&
         <SimpleModal onCloseRequest={() => this.modalClose()} style={styles.half}>
-        <Profile details={this.state.posts[this.state.selectedIdx]} color={returnPastelColor(this.state.selectedIdx)}/>
+        <Profile details={this.state.posts[this.state.selectedIdx]}/>
         </SimpleModal>}
         {this.state.filterShow &&
-          <SimpleModal onCloseRequest={() => this.filterClose()} style={styles.half}>
+          <SimpleModal onCloseRequest={() => this.filterClose()} style={{backgroundImage:"url(/1479_wall.jpg)"}}>
           <Filter
           modalClose={this.filterClose}
           types={this.state.types}

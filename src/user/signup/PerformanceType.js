@@ -19,6 +19,7 @@ class PerformanceType extends Component {
                     <Form className="signup-form">
                         <FormItem>
                             <input
+                               className="pt-checkbox"
                                 onChange={this.props.checkIsSolo}
                                 id={"isSolo"} type="checkbox"
                                 checked={this.props.isSolo}/>
@@ -30,6 +31,7 @@ class PerformanceType extends Component {
                             return (
                                 <FormItem>
                                     <input
+                                        className="pt-checkbox"
                                         onChange={(event) => this.props.performanceTypeCheck(index, event)}
                                         id={type.id} type="checkbox"
                                         checked={type.val}/>

@@ -64,17 +64,18 @@ class SimpleModal extends Component {
                 <div
                     className={classes.modal}
                     ref={node => (this.modal = node)}
+                    style={{backgroundImage:"url(/1479_wall.jpg)"}}
                 >
-                    <div className={classes.modalContent}>
-                        {children}
-                    </div>
-                </div>
-
                 <button
                     type="button"
                     className={classes.closeButton}
                     onClick={onCloseRequest}
                 />
+                    <div className={classes.modalContent}>
+                        {children}
+                    </div>
+                </div>
+
             </div>
         );
     }

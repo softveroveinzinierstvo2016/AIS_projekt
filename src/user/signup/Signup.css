@@ -4,6 +4,22 @@
     margin-top: 40px;
 }
 
+.signup-container h1 {
+  font-family: "Roboto", sans-serif;
+  text-shadow: -1px 0 #78909c, 0 1px #78909c, 1px 0 #78909c, 0 -1px #78909c;
+  color: #fafafa;
+  font-size: 2em;
+  letter-spacing: 4px;
+}
+
+.ant-form-item {
+    font-family: "Roboto", sans-serif;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 0.3em;
+    margin-bottom: 2px;
+}
+
 .signup-form-button {
     width: 100%;
     margin-top: 15px;
@@ -16,12 +32,21 @@
     border-color: lightsteelblue;
 }
 
+.pt-checkbox {
+  margin-right: 7px;
+  font-family: "Roboto", sans-serif;
+  color: black;
+  letter-spacing: 1px;
+  font-size: 0.3em;
+}
+
 .signup-form input {
     margin-bottom: 3px;
 }
 
 .subcategory-checkbox {
     margin-left: 20px;
+
 }
 
 .category-label {

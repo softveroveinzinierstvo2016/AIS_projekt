@@ -10,7 +10,7 @@ class Filter extends Component {
 
             <div className="scrollable-content">
                 <div className="profile">
-                    <h1 className="profile-header">Filter</h1>
+                    <h1 className="profile-header2">Filter</h1>
 
                     <div className="box1">
                         <table className="profile-info">
@@ -19,7 +19,8 @@ class Filter extends Component {
                                 <td colSpan="2">{this.props.soloOptions.map((option) => {
                                     return (
                                         <tr htmlFor={"o" + option.id}>
-                                            <input type="radio"
+                                            <input className="vstup"
+                                                   type="radio"
                                                    name="solo-options"
                                                    id={"o" + option.id}
                                                    value={option.id}
@@ -35,6 +36,7 @@ class Filter extends Component {
                                 <td colSpan="2">{this.props.types.map((type, index) => {
                                     return (
                                         <tr><input
+                                        className="vstup"
                                             onChange={(event) => this.props.typeCheck(index, event)}
                                             id={"t" + type.id} type="checkbox"
                                             checked={type.val}/>
@@ -48,6 +50,7 @@ class Filter extends Component {
                                 <td colSpan="2">{this.props.styles.map((style, index) => {
                                     return (
                                         <tr><input
+                                        className="vstup"
                                             onChange={(event) => this.props.styleCheck(index, event)}
                                             id={"s" + style.id} type="checkbox"
                                             checked={style.val}/>
@@ -65,6 +68,7 @@ class Filter extends Component {
                                                 <tr>
                                                     <td colSpan="3">
                                                         <input
+                                                        className="vstup"
                                                             onChange={(event) => this.props.categoryCheck(index, event)}
                                                             id={cat.id} type="checkbox"
                                                             checked={cat.val}/>
@@ -76,6 +80,7 @@ class Filter extends Component {
                                                     return (
                                                         <tr hidden={!cat.val}>
                                                             <input
+                                                            className="vstup"
                                                                 className="subcategory-checkbox"
                                                                 type="checkbox"
                                                                 onChange={(event) => this.props.subcategoryCheck(index, index2, event)}
@@ -121,4 +126,3 @@ class Filter extends Component {
 }
 
 export default Filter;
-

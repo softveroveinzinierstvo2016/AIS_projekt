@@ -54,7 +54,8 @@ export default {
     // The close button: absolute positioning on top left of the
     // browser window, white background square with a gray X.
     closeButton: {
-        position: 'fixed',
+        position: 'relative',
+        float: 'right',
         top: 0,
         right: 0,
         background: '#fff',
